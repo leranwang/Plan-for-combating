@@ -3,12 +3,13 @@
 
 import requests
 from bs4 import BeautifulSoup
+import time
+time.sleep(0.5)
 
 # 根据结果观察不同性别会用不同的图标样式（class），设计一个函数进行转换
 def get_lorder_sex(class_name):
     if class_name == 'member_girl_ico':
         return u'女'
-
     return u'男'
 
 def get_detail_info(url):

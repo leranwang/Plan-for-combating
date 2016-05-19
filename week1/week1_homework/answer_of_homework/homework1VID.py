@@ -62,10 +62,13 @@ def get_item_info(who_sells=0):
             'title': soup.title.text,
             # 检查价格标签是否存在，存在则取，不存在设置默认值
             'price': prices[0].text if len(prices) > 0 else 0,
+
             # 检查区域标签是否存在，存在则取，不存在设置默认值
             'area' : list(areas[0].stripped_strings) if len(areas) > 0 else [],
+
             # 检查时间标签是否存在，存在则取，不存在设置默认值
             'date' : dates[0].text if len(dates) > 0 else "",
+
             'cate' : '个人' if who_sells == 0 else '商家',
             # 浏览量是通过脚本生成的，不能从源代码直接取到，需要从network找到请求信息，模拟请求获取
             'views': get_views_from(url)
